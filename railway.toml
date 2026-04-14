@@ -3,5 +3,5 @@ builder = "nixpacks"
 buildCommand = "pip install -e ."
 
 [deploy]
-startCommand = "python -m ads_mcp.server"
+startCommand = "python -m uvicorn ads_mcp.server:app --host 0.0.0.0 --port 8000"
 restartPolicyType = "on_failure"

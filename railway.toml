@@ -3,5 +3,5 @@ builder = "nixpacks"
 buildCommand = "pip install -e ."
 
 [deploy]
-startCommand = "python -m ads_mcp.server"
+startCommand = "python -c \"from ads_mcp.coordinator import mcp; from ads_mcp.tools import search, core, get_resource_metadata; mcp.run(transport='streamable-http')\""
 restartPolicyType = "on_failure"

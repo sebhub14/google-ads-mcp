@@ -3,5 +3,5 @@ builder = "nixpacks"
 buildCommand = "pip install -e ."
 
 [deploy]
-startCommand = "python -c \"import os,json; creds={'installed':{'client_id':os.environ['GOOGLE_ADS_CLIENT_ID'],'client_secret':os.environ['GOOGLE_ADS_CLIENT_SECRET'],'refresh_token':os.environ['GOOGLE_ADS_REFRESH_TOKEN'],'token_uri':'https://oauth2.googleapis.com/token'}}; open('/tmp/credentials.json','w').write(json.dumps(creds))\" && GOOGLE_APPLICATION_CREDENTIALS=/tmp/credentials.json python -m ads_mcp.server"
+startCommand = "python -c \"import os,json; creds={'type':'authorized_user','client_id':os.environ['GOOGLE_ADS_CLIENT_ID'],'client_secret':os.environ['GOOGLE_ADS_CLIENT_SECRET'],'refresh_token':os.environ['GOOGLE_ADS_REFRESH_TOKEN']}; open('/tmp/credentials.json','w').write(json.dumps(creds))\" && GOOGLE_APPLICATION_CREDENTIALS=/tmp/credentials.json python -m ads_mcp.server"
 restartPolicyType = "on_failure"
